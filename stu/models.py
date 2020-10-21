@@ -15,4 +15,4 @@ class Student(models.Model):
 
     def __str__(self):
         return u'Student:%s'%self.isdelete
-# Student.objects.all() 默认返回全表数据  但是现在打算返回indelete中=true的。这个时候就需要自定义manager
+# Student.objects.all() 目前返回isdelete=True得了

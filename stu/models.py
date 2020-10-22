@@ -3,8 +3,8 @@ from django.db.models.manager import Manager
 
 
 class CustomManager(Manager):
-    def all(self):
-        return Manager.all(self).filter(isdelete=True)
+    def get_queryset(self):
+        return Manager.get_queryset(self).filter(isdelete=True)
 
 
 class NoDeletedManager(Manager):

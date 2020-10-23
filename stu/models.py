@@ -16,10 +16,10 @@ class NoDeletedManager(Manager):
 class Student(models.Model):
     sname = models.CharField(max_length=30)
     isdelete = models.BooleanField(default=False)
-    objects = CustomManager()
-
-    show = NoDeletedManager()
 
     def __str__(self):
         return u'Student:%s' % self.isdelete
-# Student.objects.all() 目前返回isdelete=True得了
+
+    def delete(self, using=None, keep_parents=False):
+        self.isdelete=True
+        self.save()

@@ -2,6 +2,7 @@ from django.db import models
 from django.db.models import QuerySet
 from django.db.models.manager import Manager
 
+
 class CustomManager(Manager):
     def get_queryset(self):
         return Manager.get_queryset(self).filter(isdelete=True)
@@ -10,6 +11,7 @@ class CustomManager(Manager):
 class NoDeletedManager(Manager):
     def all(self):
         return Manager.all(self).filter(isdelete=False)
+
 
 # Create your models here.
 class Student(models.Model):

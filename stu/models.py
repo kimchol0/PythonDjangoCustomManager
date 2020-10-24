@@ -16,7 +16,7 @@ class NoDeletedManager(Manager):
 
 class BatchDelManager(Manager):
     def get_queryset(self):
-        return Manager.get_queryset(list).filter(isdelete=False)
+        return Manager.get_queryset(self).filter(isdelete=False)
 
     def filter(self, *args, **kwargs):
         # 获取需要删除记录

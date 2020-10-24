@@ -1,8 +1,7 @@
 from django.db import models
 from django.db.models import QuerySet
 from django.db.models.manager import Manager
-from . import new
-
+from new
 
 class CustomManager(Manager):
     def get_queryset(self):
